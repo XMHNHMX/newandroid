@@ -30,24 +30,96 @@ class Calculator:
         self.error = ""
 
     # Определяем метод append для добавления символа к введенному выражению
-    def append(self, symbol):
-        # Добавляем символ к атрибуту input
-        self.input += symbol
 
-    # Определяем метод calculate для вычисления результата введенного выражения
-    def calculate(self):
-        try:
-            # Пытаемся выполнить математическое действие с помощью функции eval и присвоить результат атрибуту output 
-            self.output = eval(self.input)
-            # Если результат - бесконечность или не число, генерируем исключение ValueError 
-            if math.isinf(self.output) or math.isnan(self.output):
-                raise ValueError("Invalid result")
-            # Форматируем результат с двумя знаками после запятой 
-            self.output = f"{self.output:.2f}"
+def append(self, symbol):
+
+    # Если символ - точка и в выражении уже есть точка, не добавляем его
+
+    if symbol == "." and "." in self.input:
+
+        return
+
+    # Иначе добавляем символ к атрибуту input
+
+    self.input += symbol
+
+# Определяем метод calculate для вычисления результата введенного выражения
+
+def calculate(self):
+
+    try:
+
+        # Пытаемся разделить выражение на два операнда и оператор по пробелу 
+
+        operand1, operator, operand2 = self.input.split()
+
+        # Преобразуем операнды в числа с плавающей запятой 
+
+        operand1 = float(operand1)
+
+        operand2 = float(operand2)
+
+        # Выполняем математическое действие в зависимости от оператора и присваиваем результат атрибуту output 
+
+        if operator == "+":
+
+            self.output = operand1 + operand2
+
+        elif operator == "-":
+
+            self.output = operand1 - operand2
+
+        elif operator == "*":
+
+            self.output = operand1 * operand2
+
+        elif operator == "/":
+
+            self.output = operand1 / operand2
+
+        else:
+
+            raise ValueError("Invalid operator")
+
         
-        except (SyntaxError, NameError, ZeroDivisionError, ValueError) as e:
-            # Если возникло исключение при выполнении функции eval или проверки результата, присваиваем сообщение об ошибке атрибуту error 
-            self.error = f"Error: {e}"
+
+        # Если результат - бесконечность или не число, генерируем исключение ValueError 
+
+        if math.isinf(self.output) or math.isnan(self.output):
+
+            raise ValueError("Invalid result")
+
+        
+
+        # Форматируем результат с двумя знаками после запятой 
+
+        self.output = f"{self.output:.2f}"
+
+    
+
+    except (ValueError) as e:
+
+         # Если возникло исключение при разборе или выполнении выражения, присваиваем сообщение об ошибке атрибуту error 
+
+         self.error = f"Error: {e}"
+
+# Определяем метод display для отображения состояния калькулятора
+
+def display(self):
+
+    # Если есть ошибка, выводим ее на экран
+
+    if self.error:
+
+        print(self.error)
+
+    # Иначе выводим введенное выражение и результат
+
+    else:
+
+        print(f"Input: {self.input}")
+
+```
 
 # Создаем объект calculator из класса Calculator 
 calculator = Calculator()
