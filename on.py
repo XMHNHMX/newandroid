@@ -131,6 +131,50 @@ def percent(a):
 def negate(a):
   return -a # используем оператор -
 
+# Это функция возведения в степень
+
+def power(x, y):
+
+    return x ** y
+
+# Это функция извлечения квадратного корня
+
+def square_root(x):
+
+    return x ** (0.5)
+
+# Это функция вычисления факториала
+
+def factorial(x):
+
+    import math # импортируем модуль math для использования его функций
+
+    return math.factorial(x)
+
+# Это функция вычисления синуса
+
+def sine(x):
+
+    import math # импортируем модуль math для использования его функций
+
+    return math.sin(x)
+
+# Это функция вычисления косинуса
+
+def cosine(x):
+
+    import math # импортируем модуль math для использования его функций
+
+    return math.cos(x)
+
+# Это функция вычисления тангенса
+
+def tangent(x):
+
+    import math # импортируем модуль math для использования его функций
+
+    return math.tan(x)
+
 
 
 # Создаем объект calculator из класса Calculator 
