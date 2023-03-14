@@ -106,7 +106,7 @@ def display(self):
 
         print(f"Input: {self.input}")
 
-```
+
 
 # Создаем объект calculator из класса Calculator 
 calculator = Calculator()
