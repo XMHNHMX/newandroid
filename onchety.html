@@ -6,12 +6,6 @@
 
   <style>
 
-
-
-
-
-
-
     /* Стилизуем форму калькулятора */
 
       calculator {
@@ -190,81 +184,68 @@
 
 <body>
 
- <!-- Создаем форму калькулятора -->
+ <iframe src="https://github.com/carboraneacid/newandroid/blob/main/onchety.py" width="300" height="400"></iframe>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.6.4/math.min.js"></script>
+<form id="calculator">
+  <input type="text" id="display" readonly>
+  <div class="keys">
+    <button class="key key-operator" data-action="add" onclick="dis('+')">+</button>
+    <button class="key key-operator" data-action="subtract" onclick="dis('-')">-</button>
+    <button class="key key-operator" data-action="multiply" onclick="dis('*')">×</button>
+    <button class="key key-operator" data-action="divide" onclick=dis('/')">÷</button>
+    <button class= "key key-number" onclick= "dis('7')">7</button>
+    <button class="key key-number" onclick="dis('8')">8</button>
+    <button class="key key-number" onclick="dis('9')">9</butto
+    <button class="key key-number" onclick="dis('4')">4</button>
+    <button class="key key-number" onclick="dis('5')">5</button>
+    <button class="key key-number" onclick="dis('6')">6</button>
+    <button class="key key-number" onclick="dis('1')">1</button>
+    <button class="key key-number" onclick= "dis('2')">2</button>
+    <button class= "key key-number" onclick= "dis('3')">3</button>
+    <button class= "key key-number" onclick= "dis('0')">0</button>>
+    <button class= "key" data-action= "decimal" onclick= "dis('.')">.</button>
+    <button class= "key" data-action= "clear" onclick= "clr()">AC</button>
+    <button class= "key key-equal" data-action= "calculate" onclick= "solve()">=</button>
 
- <form class="calculator" id="calc">
+</form>
+  </div>
+</form>
 
-   <!-- Создаем поле ввода -->
+<script>
 
-   <input type="text" id="input" value="0" readonly>
+// Define variables
+var display = document.getElementById("display");
+var keys = document.getElementsByClassName("keys");
 
-   <!-- Создаем выпадающий список для выбора системы счисления -->
+// Define functions
 
-   <select id="base">
+// Display value on the screen
+function dis(value) {
+  display.value += value;
+}
 
-     <option value="10">Decimal</option>
+// Clear the screen
+function clr() {
+  display.value = "";
+}
 
-     <option value="2">Binary</option>
+// Calculate the result
+function solve() {
+  try {
+    var result = math.evaluate(display.value);
+    display.value = result;
+  }
+  catch(err) {
+    display.value = "Error";
+  }
+}
 
-     <option value="8">Octal</option>
-
-     <option value="16">Hexadecimal</option>
-
-   </select>
-
-    
-<!-- Создаем кнопки -->
-
-   <div class="buttons">
-
-     <button type="button" value="+">+</button>
-
-     <button type="button" value="-">-</button>
-
-     <button type="button" value="*">×</button>
-
-     <button type="button" value="/">÷</button>
-
-     <output id="output"></output><!-- Создаем поле вывода -->
-
-     <input type ="hidden" id ="operator"><!-- Создаем скрытое поле для хранения оператора -->
-
-     <div class="constants">
-
-       <button type="button" value="pi" class="pi">π</button><!-- Создаем кнопку для вставки числа пи -->
-
-       <button type="button" value="e" class="e">e</button><!-- Создаем кнопку для вставки числа е -->
-
-       <button type="button" value="phi" class="phi">φ</button><!-- Создаем кнопку для вставки золотого сечения -->
-
-     </div>
-
-   </div>
-<!-- Создаем выпадающий список для выбора единиц измерения -->
-
-   <select id="unit">
-
-     <option value="">None</option>
-
-     <option value="length">Length</option>
-
-     <option value="area">Area</option>
-
-     <option value="volume">Volume</option>
-
-     <option value="mass">Mass</option>
-
-     <option value="temperature">Temperature</option>
-
-   </select> 
-
-   <!-- Создаем кнопку равно -->
-
-   <div class ="equal">
-
-   	<button type ="submit" id ="result" class ="equal">=</ button>   </div> 
-
- 
+</script>
 
 
 
+
+
+
+
+</body>
